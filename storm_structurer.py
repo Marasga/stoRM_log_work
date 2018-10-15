@@ -55,6 +55,8 @@ def log_tabler(listed_log):
         message.append(line.split(":",3)[3].strip())
         if it%100000 == 0 :
             print " parsed line {0} of {1} lines".format(it,total)
+        if it == 0:
+            print "---END---"
         it+=1
         
     log_table = {'DATE':date, 'TIMESTAMP':time_stamp, 'THREAD':thread,\
