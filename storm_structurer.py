@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 """
-module for scorporating, structuring and save as .csv stoRM frontend logs
+module for unbundle, structuring and save as .csv o .msg stoRM frontend logs
 
 Created on Tue Oct  2 12:33:23 2018
 
@@ -53,7 +53,7 @@ def log_tabler(listed_log):
         tipe.append(line.split(" ",7)[6])
         token.append(line.split("[",1)[1].split("]",1)[0])
         message.append(line.split(":",3)[3].strip())
-        if it%50 == 0 :
+        if it%100000 == 0 :
             print " parsed line {0} of {1} lines".format(it,total)
         it+=1
         
@@ -81,21 +81,8 @@ def csver(log_table,out_filepath):
     #print dataf.describe()
     dataf.to_csv(out_filepath + '.csv', index=False)
 
-"""
-parser = argparse.ArgumentParser(description="stoRM frontend logs analyzer")
-parser.add_argument("--fin",help="write input path as: ~/path/",type=str)
-
-parser.add_argument("--fout",help="out input path as: ~/path/",type=str)
-
-
-args = parser.parse_args()
-
-in_path = args.input_path
-out_path = args.output_path
-file_name = args.file_name
-"""
 
 
     
-csver(log_tabler(log_reader("/home/gabriele/Documents/storm-frontend-server.log-20180901")),"/home/gabriele/Documents/storm-frontend-server.log-20180901")
+csver(log_tabler(log_reader("storm-frontend-server.log-20180901")),"storm-frontend-server.log-20180901")
 
