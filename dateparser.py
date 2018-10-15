@@ -1,13 +1,11 @@
-#!/usr/bin/env python2
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 """
 Created on Wed Oct  3 14:53:42 2018
 
 @author: gabriele
 
-functions toolset for date manipulation
-methods:
-storm_dtpars
+function for stoRM frontend logs date manipulation
 """
 
 import datetime
