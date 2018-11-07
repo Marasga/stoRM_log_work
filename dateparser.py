@@ -1,11 +1,13 @@
-#!/usr/bin/python
+#!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 """
 Created on Wed Oct  3 14:53:42 2018
 
 @author: gabriele
 
-function for stoRM frontend logs date manipulation
+functions toolset for date manipulation
+methods:
+storm_dtpars
 """
 
 import datetime
@@ -29,4 +31,13 @@ def storm_dtpars(stringa_date):
 
     return timestamp
 
+def kibana_dtpars(stringa_date):
+    """
+    Takes stoRM's log datetime preparsed by kibana and return timestamp(seconds)
+    """
+    formato = '%Y-%m-%dT%H:%M:%S.%fZ'
+    epoch = datetime.datetime(1970,1,1)
+    date = datetime.datetime.strptime(stringa_date,formato)
+    time_delta = date - epoch
+    return time_delta.total_seconds()
 
